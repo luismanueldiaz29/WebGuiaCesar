@@ -6,6 +6,6 @@ namespace WebGuiaCesar.Models{
         public AplicactionContext(DbContextOptions<AplicactionContext> options):
         base(options){}
     
-        //public Microsoft.EntityFrameworkCore.DbSet<Image> Images { get; set; }
+        public DbSet<GalleryImageResponse> GalleryImage { get; set; }
     }
 }

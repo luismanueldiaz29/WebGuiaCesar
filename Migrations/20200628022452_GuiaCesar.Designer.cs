@@ -9,8 +9,8 @@ using WebGuiaCesar.Models;
 namespace WebGuiaCesar.Migrations
 {
     [DbContext(typeof(AplicactionContext))]
-    [Migration("20200627030908_GuiCesar")]
-    partial class GuiCesar
+    [Migration("20200628022452_GuiaCesar")]
+    partial class GuiaCesar
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -20,22 +20,28 @@ namespace WebGuiaCesar.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("WebGuiaCesar.Models.Image", b =>
+            modelBuilder.Entity("WebGuiaCesar.Models.GalleryImageResponse", b =>
                 {
-                    b.Property<int>("ImageID")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("ImageCaption")
+                    b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("ImageName")
+                    b.Property<string>("ImagesPath")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("ImageID");
+                    b.Property<string>("InfoInterest")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.ToTable("Images");
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("GalleryImage");
                 });
 #pragma warning restore 612, 618
         }

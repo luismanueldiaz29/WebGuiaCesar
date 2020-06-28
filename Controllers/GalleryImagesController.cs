@@ -11,15 +11,17 @@ namespace WebGuiaCesar.Controllers
     public class GalleryImagesController : ControllerBase
     {
         private IWebHostEnvironment _env;
-
-        public GalleryImagesController(IWebHostEnvironment env)
+        private AplicactionContext _context;
+        public GalleryImagesController(IWebHostEnvironment env, AplicactionContext context)
         {
             _env = env;
+            this._context = context;
         }
 
+        [HttpPost]
         public async Task<IActionResult> OnPostUploadAsync([FromForm]GalleryImageRequest model)
         {
-            var response = new GalleryImageResponse(model.Name, model.Description);
+            var response = new GalleryImageResponse(model.Name, model.Description, model.InfoInterest);
 
             foreach (var formFile in model.Files)
             {
@@ -34,7 +36,8 @@ namespace WebGuiaCesar.Controllers
                     }
                 }
             }
-
+            _context.GalleryImage.Add(response);
+            await _context.SaveChangesAsync();
             return Ok(response);
         }
     }

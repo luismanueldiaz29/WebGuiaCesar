@@ -2,29 +2,31 @@
 
 namespace WebGuiaCesar.Migrations
 {
-    public partial class GuiCesar : Migration
+    public partial class GuiaCesar : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Images",
+                name: "GalleryImage",
                 columns: table => new
                 {
-                    ImageID = table.Column<int>(nullable: false)
+                    Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    ImageCaption = table.Column<string>(nullable: true),
-                    ImageName = table.Column<string>(nullable: true)
+                    Name = table.Column<string>(nullable: true),
+                    Description = table.Column<string>(nullable: true),
+                    InfoInterest = table.Column<string>(nullable: true),
+                    ImagesPath = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Images", x => x.ImageID);
+                    table.PrimaryKey("PK_GalleryImage", x => x.Id);
                 });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Images");
+                name: "GalleryImage");
         }
     }
 }
