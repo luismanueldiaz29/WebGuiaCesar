@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
-export class GalleryService {
+export class SiteService {
 
   private galleries = [];
 
@@ -14,5 +14,4 @@ export class GalleryService {
   get() {
     return this.galleries;
   }
-
 }

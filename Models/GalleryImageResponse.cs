@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.IO;
 
 namespace WebGuiaCesar.Models
 {
@@ -20,7 +21,9 @@ namespace WebGuiaCesar.Models
 
         public void AddImage(string fileName)
         {
-            ImagesPath = ($"/images/{fileName}");
+            string Url = Path.Combine(Directory.GetCurrentDirectory(), "images");
+            // ImagesPath = ($"/images/{fileName}");
+            ImagesPath = ($"{Url}/{fileName}");
         }
     }
 }

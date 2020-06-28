@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { GalleryService } from './gallery.service';
+import { SiteService } from './site.service';
 
-describe('GalleryService', () => {
+describe('SiteService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: GalleryService = TestBed.get(GalleryService);
+    const service: SiteService = TestBed.get(SiteService);
     expect(service).toBeTruthy();
   });
 });
