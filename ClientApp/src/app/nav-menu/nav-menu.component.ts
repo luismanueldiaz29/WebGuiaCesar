@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MaterialModule } from '../material/material';
 
 @Component({
   selector: 'app-nav-menu',
@@ -6,8 +7,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./nav-menu.component.css']
 })
 export class NavMenuComponent {
+  imports : [MaterialModule];
   isExpanded = false;
 
+  constructor(){
+
+  }
   collapse() {
     this.isExpanded = false;
   }

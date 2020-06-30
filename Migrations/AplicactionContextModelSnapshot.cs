@@ -39,7 +39,7 @@ namespace WebGuiaCesar.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("GalleryImage");
+                    b.ToTable("GalleryImageResponse");
                 });
 #pragma warning restore 612, 618
         }

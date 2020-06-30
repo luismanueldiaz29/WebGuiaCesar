@@ -1,29 +1,39 @@
 using System.Collections.Generic;
 using System.IO;
+using Newtonsoft.Json;
 
 namespace WebGuiaCesar.Models
 {
     public class GalleryImageResponse
     {
+        [JsonProperty("Id")]
         public int Id { get; set; }
-        public string Name { get; private set; }
-        public string Description { get; private set; }
+
+        [JsonProperty("Name")]
+        public string Name { get;  set; }
+
+        [JsonProperty("Description")]
+        public string Description { get; set; }
+
+        [JsonProperty("InfoInterest")]
         public string InfoInterest { get; set; }
-        public string ImagesPath { get; private set; }
 
-        public GalleryImageResponse(string name, string description, string infoInterest)
-        {
-            Name = name;
-            Description = description;
-            InfoInterest = infoInterest;
-            ImagesPath = "";
-        }
+        [JsonProperty("ImagesPath")]
+        public string ImagesPath { get; set; }
 
-        public void AddImage(string fileName)
-        {
-            string Url = Path.Combine(Directory.GetCurrentDirectory(), "images");
+        // public GalleryImageResponse(string name, string description, string infoInterest)
+        // {
+        //     Name = name;
+        //     Description = description;
+        //     InfoInterest = infoInterest;
+        //     ImagesPath = "";
+        // }
+
+        // public void AddImage(string fileName)
+        // {
+        //     string Url = Path.Combine(Directory.GetCurrentDirectory(), "images");
             // ImagesPath = ($"/images/{fileName}");
-            ImagesPath = ($"{Url}/{fileName}");
-        }
+            // ImagesPath = ($"{Url}/{fileName}");
+        // }
     }
 }

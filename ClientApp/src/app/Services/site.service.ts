@@ -1,9 +1,19 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Gallery } from '../Models/Gallery';
+import { Observable } from 'rxjs';
+import { Site } from '../Models/Site';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SiteService {
+
+  constructor(
+    private http: HttpClient,
+    @Inject('BASE_URL') private baseUrl: string,
+    private galleryService: SiteService) {
+  }
 
   private galleries = [];
 
@@ -11,7 +21,7 @@ export class SiteService {
     this.galleries.push(gallery);
   }
 
-  get() {
-    return this.galleries;
+  get(): Observable<Site[]> {
+    return this.http.get<Site[]>(`${this.baseUrl}api/Site`);
   }
 }

@@ -9,7 +9,7 @@ using WebGuiaCesar.Models;
 namespace WebGuiaCesar.Migrations
 {
     [DbContext(typeof(AplicactionContext))]
-    [Migration("20200628022452_GuiaCesar")]
+    [Migration("20200630210931_GuiaCesar")]
     partial class GuiaCesar
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -41,7 +41,7 @@ namespace WebGuiaCesar.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("GalleryImage");
+                    b.ToTable("GalleryImageResponse");
                 });
 #pragma warning restore 612, 618
         }

@@ -25,17 +25,21 @@
             [routerLinkActive]="['link-active']"
             [routerLinkActiveOptions]="{ exact: true }"
           >
-            <a class="nav-link text-dark" [routerLink]="['/']">Home</a>
+          <button mat-button [routerLink]="['/']">Home</button>
           </li>
           <li class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-dark" [routerLink]="['/add_sites']"
+            <!-- <a class="nav-link text-dark" [routerLink]="['/add_sites']"
               >Sites</a
-            >
+            > -->
+            <button mat-button [matMenuTriggerFor]="menu">Site</button>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item routerLink="/add_sites">Add site</button>
+              <button mat-menu-item routerLink="/list_sites">list sites</button>
+            </mat-menu>
           </li>
           <li class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-dark" [routerLink]="['/']"
-              >Fetch data</a
-            >
+            <button mat-button [routerLink]="['/']"
+              >Fetch data</button>
           </li>
         </ul>
       </div>

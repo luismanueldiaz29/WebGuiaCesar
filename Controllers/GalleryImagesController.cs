@@ -21,7 +21,10 @@ namespace WebGuiaCesar.Controllers
         [HttpPost]
         public async Task<IActionResult> OnPostUploadAsync([FromForm]GalleryImageRequest model)
         {
-            var response = new GalleryImageResponse(model.Name, model.Description, model.InfoInterest);
+            var response = new GalleryImageResponse();
+            response.Name = model.Name; 
+            response.Description= model.Description; 
+            response.InfoInterest = model.InfoInterest;
 
             foreach (var formFile in model.Files)
             {
@@ -32,11 +35,14 @@ namespace WebGuiaCesar.Controllers
                     using (var stream = System.IO.File.Create(filePath))
                     {
                         await formFile.CopyToAsync(stream);
-                        response.AddImage(formFile.FileName);
+                        // string Url = Path.Combine(Directory.GetCurrentDirectory(), "images");
+                        // response.ImagesPath = ($"{Url}\\{formFile.FileName}");
+                        response.ImagesPath = ($"images/{formFile.FileName}");
+                        // response.AddImage(formFile.FileName);
                     }
                 }
             }
-            _context.GalleryImage.Add(response);
+            _context.GalleryImageResponse.Add(response);
             await _context.SaveChangesAsync();
             return Ok(response);
         }

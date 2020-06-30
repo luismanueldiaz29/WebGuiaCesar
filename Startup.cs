@@ -25,7 +25,7 @@ namespace WebGuiaCesar
 
             //conection
             services.AddDbContext<AplicactionContext>(opt => opt.UseSqlServer(@"Server=DESKTOP-SASMJIE;Database=GuiaCesar;Trusted_Connection=True;"));
-
+            // services.AddDbContext<AplicactionContext>(opt => opt.UseSqlServer(@"Server=tcp:guiacesar.database.windows.net,1433;Initial Catalog=guiacesar;Persist Security Info=False;User ID=guiacesar;Password=1003-admin;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"));
 
             services.AddControllersWithViews();
             // In production, the Angular files will be served from this directory
